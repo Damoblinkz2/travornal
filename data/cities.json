@@ -1,50 +1,38 @@
 {
   "cities": [
     {
-      "cityName": "Lisbon",
-      "country": "Portugal",
-      "emoji": "🇵🇹",
+      "cityName": "Abuja",
+      "country": "Nigeria",
+      "emoji": "NG",
       "date": "2027-10-31T15:59:59.138Z",
       "notes": "My favorite city so far!",
       "position": {
-        "lat": 38.727881642324164,
-        "lng": -9.140900099907554
+        "lat": 9.037893051169615,
+        "lng": 7.453966140747071
       },
       "id": 73930385
     },
     {
-      "cityName": "Lisbonat",
-      "country": "Portugal",
-      "emoji": "🇵🇹",
-      "date": "2027-10-31T15:59:59.138Z",
-      "notes": "My favorite city so far!",
-      "position": {
-        "lat": 38.727881642324164,
-        "lng": -9.140900099907554
-      },
-      "id": 73930384
-    },
-    {
-      "cityName": "Madrid",
-      "country": "Spain",
-      "emoji": "🇪🇸",
+      "cityName": "Ilesa",
+      "country": "Nigeria",
+      "emoji": "NG",
       "date": "2027-07-15T08:22:53.976Z",
       "notes": "",
       "position": {
-        "lat": 40.46635901755316,
-        "lng": -3.7133789062500004
+        "lat": 7.610386434327486,
+        "lng": 4.736480712890626
       },
       "id": 17806751
     },
     {
-      "cityName": "Berlin",
-      "country": "Germany",
-      "emoji": "🇩🇪",
+      "cityName": "Lagos",
+      "country": "Nigeria",
+      "emoji": "NG",
       "date": "2027-02-12T09:24:11.863Z",
       "notes": "Amazing 😃",
       "position": {
-        "lat": 52.53586782505711,
-        "lng": 13.376933665713324
+        "lat": 6.561337814976813,
+        "lng": 3.5897827148437504
       },
       "id": 98443197
     }

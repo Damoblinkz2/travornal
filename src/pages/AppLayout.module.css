@@ -1,7 +1,9 @@
 .app {
-  /* height: 100vh; */
+  height: 90vh;
+  /* height: 100%; */
   /* padding: 2.4rem; */
   overscroll-behavior-y: none;
+  overflow: hidden;
   display: flex;
   position: relative;
 }
