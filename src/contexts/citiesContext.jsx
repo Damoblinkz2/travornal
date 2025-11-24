@@ -27,6 +27,7 @@ const reducer = (state, action) => {
         ...state,
         isLoading: false,
         cities: [...state.cities, action.payLoad],
+        currentCity: action.payLoad,
       };
 
     case "city/deleted":
@@ -34,6 +35,7 @@ const reducer = (state, action) => {
         ...state,
         isLoading: false,
         cities: state.cities.filter((city) => city.id !== action.payLoad),
+        currentCity: {},
       };
 
     case "rejected":
@@ -45,7 +47,7 @@ const reducer = (state, action) => {
 };
 
 const CitiesProvider = ({ children }) => {
-  const [{ cities, isLoading, currentCity }, dispatch] = useReducer(
+  const [{ cities, isLoading, currentCity, error }, dispatch] = useReducer(
     reducer,
     initialState
   );
@@ -72,6 +74,8 @@ const CitiesProvider = ({ children }) => {
   }, []);
 
   const getCity = async (id) => {
+    if (Number(id) === currentCity.id) return;
+
     dispatch({ type: "loading" });
     try {
       const res = await fetch(`${BASE_URL}/cities/${id}`);
@@ -131,6 +135,7 @@ const CitiesProvider = ({ children }) => {
         isLoading,
         currentCity,
         getCity,
+        error,
         createCity,
         deleteCity,
       }}
