@@ -15,7 +15,7 @@ import { useGeolocation } from "../hooks/useGeolocation";
 import Button from "./Button";
 import { useUrlPosition } from "../hooks/useUrlPosition";
 
-const Map = () => {
+const Map = ({ handleView }) => {
   const { cities } = useCities();
   const {
     isLoading: isLoadingPosition,
@@ -55,7 +55,7 @@ const Map = () => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
         />
-        {cities.map((city) => (
+        {cities?.map((city) => (
           <Marker
             position={[city.position.lat, city.position.lng]}
             key={city.id}
@@ -67,7 +67,7 @@ const Map = () => {
         ))}
 
         <ChangeCenter position={position} />
-        <DetectClick />
+        <DetectClick handleView={handleView} />
       </MapContainer>
     </div>
   );
@@ -79,10 +79,13 @@ const ChangeCenter = ({ position }) => {
   return null;
 };
 
-const DetectClick = () => {
+const DetectClick = ({ handleView }) => {
   const navigate = useNavigate();
   useMapEvents({
-    click: (e) => navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`),
+    click: (e) => {
+      navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`);
+      handleView("sidebar");
+    },
   });
 };
 

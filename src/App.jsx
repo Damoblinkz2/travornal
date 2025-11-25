@@ -2,8 +2,8 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import "./App.css";
 import Homepage from "./pages/homepage";
-import Product from "./pages/product";
-import AppLayout from "./pages/appLayout";
+import Product from "./pages/Product";
+import AppLayout from "./pages/AppLayout";
 import Pricing from "./pages/pricing";
 import Login from "./pages/Login";
 import PageNotFound from "./pages/pageNotFound";

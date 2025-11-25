@@ -3,7 +3,7 @@
     {
       "cityName": "Abuja",
       "country": "Nigeria",
-      "emoji": "NG",
+      "countryCode": "NG",
       "date": "2027-10-31T15:59:59.138Z",
       "notes": "My favorite city so far!",
       "position": {
@@ -15,7 +15,7 @@
     {
       "cityName": "Ilesa",
       "country": "Nigeria",
-      "emoji": "NG",
+      "countryCode": "NG",
       "date": "2027-07-15T08:22:53.976Z",
       "notes": "",
       "position": {
@@ -27,7 +27,7 @@
     {
       "cityName": "Lagos",
       "country": "Nigeria",
-      "emoji": "NG",
+      "countryCode": "NG",
       "date": "2027-02-12T09:24:11.863Z",
       "notes": "Amazing 😃",
       "position": {
@@ -40,19 +40,7 @@
       "id": "9c86",
       "cityName": "Akinyele",
       "country": "Nigeria",
-      "emoji": "🇳🇬",
-      "date": "2025-11-24T18:44:02.919Z",
-      "notes": "talking",
-      "position": {
-        "lat": "7.579126693379652",
-        "lng": "4.003143310546876"
-      }
-    },
-    {
-      "id": "ae8d",
-      "cityName": "Akinyele",
-      "country": "Nigeria",
-      "emoji": "🇳🇬",
+      "countryCode": "NG",
       "date": "2025-11-24T18:44:02.919Z",
       "notes": "talking",
       "position": {
@@ -64,7 +52,7 @@
       "id": "c0a2",
       "cityName": "Ido",
       "country": "Nigeria",
-      "emoji": "🇳🇬",
+      "countryCode": "NG",
       "date": "2025-11-24T18:49:25.469Z",
       "notes": "hhh",
       "position": {
@@ -76,7 +64,7 @@
       "id": "9300",
       "cityName": "Ubiaja",
       "country": "Nigeria",
-      "emoji": "🇳🇬",
+      "countryCode": "NG",
       "date": "2025-11-24T19:55:22.097Z",
       "notes": "hommy",
       "position": {
@@ -88,12 +76,48 @@
       "id": "a682",
       "cityName": "Ndali",
       "country": "Benin",
-      "emoji": "🇧🇯",
+      "countryCode": "BJ",
       "date": "2025-11-24T20:13:33.251Z",
       "notes": "blow",
       "position": {
         "lat": "9.395221468270824",
         "lng": "2.7136230468750004"
+      }
+    },
+    {
+      "id": "4ec1",
+      "cityName": "Oualata",
+      "country": "Mauritania",
+      "countryCode": "MR",
+      "date": "2025-11-25T04:43:34.783Z",
+      "notes": "good",
+      "position": {
+        "lat": "18.024214268901137",
+        "lng": "-8.085937500000002"
+      }
+    },
+    {
+      "id": "48ac",
+      "cityName": "Bourem",
+      "country": "Mali",
+      "countryCode": "ML",
+      "date": "2025-11-25T04:50:36.122Z",
+      "notes": "lol",
+      "position": {
+        "lat": "17.342157378225018",
+        "lng": "-1.40625"
+      }
+    },
+    {
+      "id": "eb61",
+      "cityName": "London",
+      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
+      "countryCode": "GB",
+      "date": "2025-11-25T07:12:44.831Z",
+      "notes": "",
+      "position": {
+        "lat": "51.42747075866634",
+        "lng": "-0.12084960937500001"
       }
     }
   ]

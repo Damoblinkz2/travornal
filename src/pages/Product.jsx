@@ -11,12 +11,10 @@ export default function Product() {
           alt="person with dog overlooking mountain with sunset"
         />
         <div>
-          <h2>About WorldWide.</h2>
+          <h2>About Travornal.</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo est
-            dicta illum vero culpa cum quaerat architecto sapiente eius non
-            soluta, molestiae nihil laborum, placeat debitis, laboriosam at fuga
-            perspiciatis?
+            Travornal is a travel jornal the keeps all you travel logs and
+            memories alive
           </p>
           <p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis

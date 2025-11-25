@@ -9,6 +9,7 @@ const initialState = {
   isLoading: false,
   currentCity: {},
   error: "",
+  currentViewMobile: "map",
 };
 
 const reducer = (state, action) => {
@@ -38,6 +39,13 @@ const reducer = (state, action) => {
         currentCity: {},
       };
 
+    case "map/mobile":
+      return {
+        ...state,
+        isLoading: false,
+        currentViewMobile: action.payLoad,
+      };
+
     case "rejected":
       return { ...state, isLoading: false, error: action.payLoad };
 
@@ -47,13 +55,12 @@ const reducer = (state, action) => {
 };
 
 const CitiesProvider = ({ children }) => {
-  const [{ cities, isLoading, currentCity, error }, dispatch] = useReducer(
-    reducer,
-    initialState
-  );
+  const [
+    { cities, isLoading, currentCity, error, currentViewMobile },
+    dispatch,
+  ] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    // setIsLoading(true);
     dispatch({ type: "loading" });
     const fetchCities = async () => {
       try {
@@ -127,6 +134,18 @@ const CitiesProvider = ({ children }) => {
       });
     }
   };
+  // const mobileForm = async (view) => {
+  //   dispatch({ type: "loading" });
+  //   try {
+  //     dispatch({ type: "map/mobile", payLoad: view });
+  //     alert(`dd ${currentViewMobile}`);
+  //   } catch {
+  //     dispatch({
+  //       type: "rejected",
+  //       payLoad: "there was an error deleting the city",
+  //     });
+  //   }
+  // };
 
   return (
     <CitiesContext.Provider
@@ -138,6 +157,8 @@ const CitiesProvider = ({ children }) => {
         error,
         createCity,
         deleteCity,
+        // mobileForm,
+        currentViewMobile,
       }}
     >
       {children}

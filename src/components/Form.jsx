@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import DatePicker from "react-datepicker";
+
 import "react-datepicker/dist/react-datepicker.css";
 import styles from "./Form.module.css";
 import Button from "./Button";
@@ -11,20 +12,12 @@ import Spinner from "./Spinner";
 import { useCities } from "../contexts/citiesContext";
 import { useNavigate } from "react-router-dom";
 
-export function convertToEmoji(countryCode) {
-  const codePoints = countryCode
-    .toUpperCase()
-    .split("")
-    .map((char) => 127397 + char.charCodeAt());
-  return String.fromCodePoint(...codePoints);
-}
-
 function Form() {
   const [cityName, setCityName] = useState("");
   const [country, setCountry] = useState("");
+  const [countryCode, setCountryCode] = useState("");
   const [date, setDate] = useState(new Date());
   const [notes, setNotes] = useState("");
-  const [emoji, setEmoji] = useState("");
   const [lat, lng] = useUrlPosition();
   const [geoCodingError, setGeoCodingError] = useState("");
   const { createCity, isLoading } = useCities();
@@ -49,7 +42,7 @@ function Form() {
 
         setCityName(data.city || data.locality || "");
         setCountry(data.countryName);
-        setEmoji(convertToEmoji(data.countryCode));
+        setCountryCode(data.countryCode);
       } catch (error) {
         setGeoCodingError(error.message);
       } finally {
@@ -66,7 +59,7 @@ function Form() {
     const newCity = {
       cityName,
       country,
-      emoji,
+      countryCode,
       date,
       notes,
       position: { lat, lng },
@@ -95,7 +88,14 @@ function Form() {
           onChange={(e) => setCityName(e.target.value)}
           value={cityName}
         />
-        <span className={styles.flag}>{emoji}</span>
+        <img
+          className={styles.flag}
+          src={
+            countryCode !== "" || countryCode !== undefined
+              ? `https://flagsapi.com/${countryCode}/flat/24.png`
+              : null
+          }
+        />
       </div>
 
       <div className={styles.row}>

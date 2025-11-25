@@ -12,7 +12,7 @@ const formatDate = (date) =>
 const CityItem = ({ city }) => {
   const { currentCity, deleteCity } = useCities();
 
-  const { cityName, emoji, date, id, position } = city;
+  const { cityName, countryCode, date, id, position } = city;
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -26,7 +26,10 @@ const CityItem = ({ city }) => {
           id === currentCity?.id ? styles["cityItem--active"] : ""
         }`}
       >
-        <span className={styles.emoji}>{emoji}</span>
+        <img
+          className={styles.flag}
+          src={`https://flagsapi.com/${countryCode}/flat/24.png`}
+        />
         <h3 className={styles.name}>{cityName}</h3>
         <time className={styles.date}>{formatDate(date)}</time>
         <button className={styles.deleteBtn} onClick={handleClick}>

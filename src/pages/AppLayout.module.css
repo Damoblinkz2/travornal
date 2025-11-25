@@ -7,3 +7,30 @@
   display: flex;
   position: relative;
 }
+
+.nav {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .nav {
+    display: block;
+  }
+  .list {
+    height: 50px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3px;
+  }
+
+  .list li {
+    background-color: #00c46a;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
