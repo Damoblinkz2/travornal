@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Map from "../components/Map";
 import Sidebar from "../components/Sidebar";
-import styles from "./appLayout.module.css";
+import styles from "./AppLayout.module.css";
 import { NavLink } from "react-router-dom";
 // import { useCities } from "../contexts/citiesContext";
 
