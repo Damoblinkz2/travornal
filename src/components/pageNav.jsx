@@ -6,6 +6,7 @@ const PageNav = () => {
   return (
     <nav className={styles.nav}>
       <Logo />
+      <div className={styles.mobileNav}>X</div>
       <ul>
         <li>
           <NavLink to="/pricing">Pricing</NavLink>

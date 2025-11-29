@@ -10,9 +10,17 @@
   gap: 4rem;
 }
 
+.nav .mobileNav {
+  display: none;
+}
 @media (max-width: 600px) {
   .nav ul {
+    display: none;
     list-style: none;
+  }
+
+  .nav .mobileNav {
+    display: block;
   }
 }
 
