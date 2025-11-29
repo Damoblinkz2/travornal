@@ -3,12 +3,17 @@
   align-items: center;
   justify-content: space-between;
 }
-
 .nav ul {
   list-style: none;
   display: flex;
   align-items: center;
   gap: 4rem;
+}
+
+@media (max-width: 600px) {
+  .nav ul {
+    list-style: none;
+  }
 }
 
 .nav a:link,

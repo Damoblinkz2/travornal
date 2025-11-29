@@ -4,13 +4,22 @@
   height: calc(100vh - 5rem);
 }
 
-.product section {
-  width: clamp(80rem, 80%, 90rem);
-  margin: 1.9rem auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 7rem;
-  align-items: center;
+@media (min-width: 600px) {
+  .product section {
+    width: clamp(80rem, 80%, 90rem);
+    margin: 1.9rem auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7rem;
+    align-items: center;
+  }
+
+  .product nav {
+    display: block;
+  }
+}
+.product nav {
+  display: none;
 }
 
 .product img {
