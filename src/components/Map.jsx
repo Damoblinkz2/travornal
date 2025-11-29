@@ -25,7 +25,7 @@ const Map = ({ handleView }) => {
 
   const [mapLat, mapLng] = useUrlPosition();
 
-  const [position, setPosition] = useState([51.505, -0.09]);
+  const [position, setPosition] = useState([7.61, 4.74]);
   // console.log(setPosition());
 
   // const position = [51.505, -0.09];
@@ -61,7 +61,17 @@ const Map = ({ handleView }) => {
             key={city.id}
           >
             <Popup>
-              <span role="img">{`${city.emoji} ${city.cityName}`}</span>
+              <span role="img">
+                <img
+                  className={styles.flag_pop}
+                  src={
+                    city.countryCode !== "" || city.countryCode !== undefined
+                      ? `https://flagsapi.com/${city.countryCode}/flat/24.png`
+                      : null
+                  }
+                />
+                {` ${city.cityName}`}
+              </span>
             </Popup>
           </Marker>
         ))}
