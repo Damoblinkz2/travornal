@@ -23,7 +23,7 @@ function City() {
     getCity(id);
   }, [id]);
 
-  const { cityName, countryCode, date, notes } = currentCity;
+  const { city, countryCode, date, notes } = currentCity;
 
   if (isLoading) return <Spinner />;
 
@@ -39,12 +39,12 @@ function City() {
                 : null
             }
           />{" "}
-          {cityName}
+          {city}
         </h3>
       </div>
 
       <div className={styles.row}>
-        <h6>You went to {cityName} on</h6>
+        <h6>You went to {city} on</h6>
         <p>{formatDate(date || null)}</p>
       </div>
 
@@ -58,11 +58,11 @@ function City() {
       <div className={styles.row}>
         <h6>Learn more</h6>
         <a
-          href={`https://en.wikipedia.org/wiki/${cityName}`}
+          href={`https://en.wikipedia.org/wiki/${city}`}
           target="_blank"
           rel="noreferrer"
         >
-          Check out {cityName} on Wikipedia &rarr;
+          Check out {city} on Wikipedia &rarr;
         </a>
       </div>
 

@@ -12,6 +12,7 @@ import CountryList from "./components/countryList";
 import City from "./components/City";
 import Form from "./components/Form";
 import { CitiesProvider } from "./contexts/citiesContext";
+import ProtectedRoute from "./components/utils.jsx";
 
 function App() {
   return (
@@ -24,10 +25,38 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="app" element={<AppLayout />}>
             <Route index element={<Navigate replace to="cities" />} />
-            <Route path="cities" element={<CityList />} />
-            <Route path="cities/:id" element={<City />} />
-            <Route path="countries" element={<CountryList />} />
-            <Route path="form" element={<Form />} />
+            <Route
+              path="cities"
+              element={
+                <ProtectedRoute>
+                  <CityList />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="cities/:id"
+              element={
+                <ProtectedRoute>
+                  <City />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="countries"
+              element={
+                <ProtectedRoute>
+                  <CountryList />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="form"
+              element={
+                <ProtectedRoute>
+                  <Form />
+                </ProtectedRoute>
+              }
+            />
           </Route>
           <Route path="*" element={<PageNotFound />} />
         </Routes>

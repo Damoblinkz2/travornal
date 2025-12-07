@@ -12,25 +12,26 @@ const formatDate = (date) =>
 const CityItem = ({ city }) => {
   const { currentCity, deleteCity } = useCities();
 
-  const { cityName, countryCode, date, id, position } = city;
+  const { countryCode, date, _id, position } = city;
+  console.log(position);
 
   const handleClick = (e) => {
     e.preventDefault();
-    deleteCity(id);
+    deleteCity(_id);
   };
   return (
     <li>
       <Link
-        to={`${id}?lat=${position.lat}&lng=${position.lng}`}
+        to={`${_id}?lat=${position.lat}&lng=${position.lng}`}
         className={`${styles.cityItem} ${
-          id === currentCity?.id ? styles["cityItem--active"] : ""
+          _id === currentCity?.id ? styles["cityItem--active"] : ""
         }`}
       >
         <img
           className={styles.flag}
           src={`https://flagsapi.com/${countryCode}/flat/24.png`}
         />
-        <h3 className={styles.name}>{cityName}</h3>
+        <h3 className={styles.name}>{city.city}</h3>
         <time className={styles.date}>{formatDate(date)}</time>
         <button className={styles.deleteBtn} onClick={handleClick}>
           &times;

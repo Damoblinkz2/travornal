@@ -26,7 +26,6 @@ const Map = ({ handleView }) => {
   const [mapLat, mapLng] = useUrlPosition();
 
   const [position, setPosition] = useState([7.61, 4.74]);
-  // console.log(setPosition());
 
   // const position = [51.505, -0.09];
   useEffect(() => {
@@ -58,7 +57,7 @@ const Map = ({ handleView }) => {
         {cities?.map((city) => (
           <Marker
             position={[city.position.lat, city.position.lng]}
-            key={city.id}
+            key={city._id}
           >
             <Popup>
               <span role="img">
@@ -70,7 +69,7 @@ const Map = ({ handleView }) => {
                       : null
                   }
                 />
-                {` ${city.cityName}`}
+                {` ${city.city}`}
               </span>
             </Popup>
           </Marker>

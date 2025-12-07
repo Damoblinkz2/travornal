@@ -2,7 +2,8 @@ import { createContext, useContext, useEffect, useReducer } from "react";
 
 const CitiesContext = createContext();
 
-const BASE_URL = "http://localhost:9000";
+const BASE_URL = "http://localhost:3000";
+const token = localStorage.getItem("token");
 
 const initialState = {
   cities: [],
@@ -35,7 +36,7 @@ const reducer = (state, action) => {
       return {
         ...state,
         isLoading: false,
-        cities: state.cities.filter((city) => city.id !== action.payLoad),
+        cities: state.cities.filter((city) => city._id !== action.payLoad),
         currentCity: {},
       };
 
@@ -64,7 +65,12 @@ const CitiesProvider = ({ children }) => {
     dispatch({ type: "loading" });
     const fetchCities = async () => {
       try {
-        const res = await fetch(`${BASE_URL}/cities`);
+        const res = await fetch(`${BASE_URL}/cities/all`, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        });
 
         const data = await res.json();
         dispatch({ type: "cities/loaded", payLoad: data });
@@ -85,7 +91,12 @@ const CitiesProvider = ({ children }) => {
 
     dispatch({ type: "loading" });
     try {
-      const res = await fetch(`${BASE_URL}/cities/${id}`);
+      const res = await fetch(`${BASE_URL}/cities/${id}`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
       const data = await res.json();
       // setCurrentCity(data);
@@ -101,17 +112,19 @@ const CitiesProvider = ({ children }) => {
   const createCity = async (newCity) => {
     dispatch({ type: "loading" });
     try {
-      const res = await fetch(`${BASE_URL}/cities/`, {
+      const res = await fetch(`${BASE_URL}/cities/all`, {
         method: "POST",
         body: JSON.stringify(newCity),
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
       });
 
       const data = await res.json();
       dispatch({ type: "city/created", payLoad: data });
-    } catch {
+    } catch (err) {
+      console.log(`post error ${err}`);
       dispatch({
         type: "rejected",
         payLoad: "there was an error creating the city",
@@ -123,7 +136,11 @@ const CitiesProvider = ({ children }) => {
     dispatch({ type: "loading" });
     try {
       await fetch(`${BASE_URL}/cities/${id}`, {
-        method: "POST",
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
       });
 
       dispatch({ type: "city/deleted", payLoad: id });

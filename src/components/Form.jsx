@@ -10,7 +10,7 @@ import { useUrlPosition } from "../hooks/useUrlPosition";
 import Message from "./Message";
 import Spinner from "./Spinner";
 import { useCities } from "../contexts/citiesContext";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 function Form() {
   const [cityName, setCityName] = useState("");
@@ -21,7 +21,7 @@ function Form() {
   const [lat, lng] = useUrlPosition();
   const [geoCodingError, setGeoCodingError] = useState("");
   const { createCity, isLoading } = useCities();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const [isLoadingGeocoding, setIsLoadingGeocoding] = useState(false);
   const BASE_URL = "https://api.bigdatacloud.net/data/reverse-geocode-client";
@@ -57,7 +57,7 @@ function Form() {
     if (!cityName || !date) return;
 
     const newCity = {
-      cityName,
+      city: cityName,
       country,
       countryCode,
       date,
@@ -66,7 +66,7 @@ function Form() {
     };
 
     await createCity(newCity);
-    navigate("/app/cities");
+    // navigate("/app/cities");
   };
 
   if (isLoadingGeocoding) return <Spinner />;
