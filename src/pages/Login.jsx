@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "./Login.module.css";
 import PageNav from "../components/pageNav";
 import { useNavigate } from "react-router-dom";
+import Button from "../components/Button";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -20,16 +21,13 @@ export default function Login() {
       body: JSON.stringify({ email, password }),
     });
 
-    alert("see2");
-
     const data = await res.json();
 
     if (res.ok) {
       localStorage.setItem("token", data.access_token);
       navigate("/app/cities");
     } else {
-      alert(data.message || "Login failed");
-      setLoginError(data.message || "Login failed");
+      setLoginError("Invalid credentials");
     }
   };
 
@@ -37,8 +35,9 @@ export default function Login() {
     <main className={styles.login}>
       <PageNav />
       <form className={styles.form} onSubmit={handleSubmit}>
+        <h1 className={styles.title}>Login to Your Account</h1>
         <div className={styles.row}>
-          <label htmlFor="email">Email address</label>
+          <label htmlFor="email">Email address:</label>
           <input
             type="email"
             id="email"
@@ -48,7 +47,7 @@ export default function Login() {
         </div>
 
         <div className={styles.row}>
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">Password:</label>
           <input
             type="password"
             id="password"
@@ -59,8 +58,8 @@ export default function Login() {
 
         <p className="login-message">{loginError}</p>
 
-        <div>
-          <button>Login</button>
+        <div className={styles.cta}>
+          <Button type="primary">Login</Button>
         </div>
       </form>
     </main>

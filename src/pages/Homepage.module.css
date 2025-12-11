@@ -9,20 +9,21 @@
   background-size: cover;
   background-position: center;
   padding: 2.5rem 5rem;
+  overflow-y: scroll;
 }
 
 .homepage section {
   display: flex;
   flex-direction: column;
-  height: 85%;
   align-items: center;
   justify-content: center;
   gap: 2.5rem;
+  margin: 3rem auto;
   text-align: center;
 }
 
 .homepage h1 {
-  font-size: 4.5rem;
+  font-size: 4.2rem;
   line-height: 1.3;
 }
 
